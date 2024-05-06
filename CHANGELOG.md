@@ -10,3 +10,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 * The `assert_context` module provides a context manager to ensure that the behavior of the `with` block aligns with expectations.
+* The `assert_object` module allows you to define complex object expectations, enabling verification of its structure and values with a single call.
