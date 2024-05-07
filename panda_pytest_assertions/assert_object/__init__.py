@@ -1,5 +1,11 @@
 from ._assert_object import assert_object, Expectation
 from ._asserter_factories import AsserterFactory, BuiltInAsserterFactory
+from ._converters import (
+    expectation_from_yaml,
+    expectation_to_yaml,
+    ExpectationYamlDumper,
+    ExpectationYamlLoader,
+)
 from ._expectation_modificators import (
     MappingSubset,
     ObjectAttributes,
@@ -17,6 +23,10 @@ __all__ = [
     'Expectation',
     'AsserterFactory',
     'BuiltInAsserterFactory',
+    'expectation_to_yaml',
+    'expectation_from_yaml',
+    'ExpectationYamlDumper',
+    'ExpectationYamlLoader',
     'MappingSubset',
     'ObjectAttributes',
     'Stringified',
