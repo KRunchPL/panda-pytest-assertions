@@ -15,7 +15,7 @@ from ._expectation_modificators import (
     WithType,
 )
 from ._objects_asserters import Asserter
-from ._protocols import AsserterFactoryProtocol, AsserterProtocol
+from ._protocols import AsserterFactoryProtocol, AsserterProtocol, GeneratorFactoryProtocol, GeneratorProtocol
 
 
 __all__ = [
@@ -36,4 +36,6 @@ __all__ = [
     'Asserter',
     'AsserterProtocol',
     'AsserterFactoryProtocol',
+    'GeneratorFactoryProtocol',
+    'GeneratorProtocol',
 ]

@@ -45,3 +45,49 @@ class AsserterFactoryProtocol(Protocol):
 
         :param expectation: expectation to create asserter for
         """
+
+
+class GeneratorProtocol(Protocol):
+    """
+    Generates expectation from given object according to a definition.
+    """
+
+    definition: Any
+    generator_factory: 'type[GeneratorFactoryProtocol]'
+
+    def __init__(
+        self,
+        generator_factory: 'type[GeneratorFactoryProtocol]',
+        definition: Any,  # noqa: ANN401
+    ) -> None: ...
+
+    @classmethod
+    def matches(cls, definition: Any) -> bool:  # noqa: ANN401
+        """
+        Decide whether provided definition can be handled by this generator.
+
+        :param definition: definition to be tested
+        """
+
+    def generate_expectation(self, object_: Any) -> Any:  # noqa: ANN401
+        """
+        Generate expectation from given object.
+
+        :param object_: an object to generate expectation from
+        """
+
+
+class GeneratorFactoryProtocol(Protocol):
+    """
+    Factory for registered generators.
+    """
+
+    @classmethod
+    def create(cls, definition: Any) -> GeneratorProtocol:  # noqa: ANN401
+        """
+        Create expectation generator for given definition.
+
+        The method goes through all registered generator types and uses the first one that matches.
+
+        :param definition: expectation definition
+        """
