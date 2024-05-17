@@ -28,6 +28,10 @@ munch = "^4.0.0"
 munch-stubs = "^0.1.2"
 types-pyyaml = "^6.0.12.20240311"
 
+[tool.poetry.group.docs.dependencies]
+mkdocs-material = "^9.5.22"
+mike = "^2.1.1"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

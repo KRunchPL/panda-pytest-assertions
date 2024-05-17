@@ -21,7 +21,7 @@ def expectation_to_yaml(expectation: Any) -> str:  # noqa: ANN401
     :param expectation: expectation to be dumped to YAML
     :return: YAML string representing expectation
     """
-    return yaml.dump(expectation, Dumper=ExpectationYamlDumper)
+    return yaml.dump(expectation, Dumper=ExpectationYamlDumper, width=10000)
 
 
 _T = TypeVar('_T')
