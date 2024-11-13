@@ -4,7 +4,7 @@ from typing import Any
 import pytest
 from _pytest.outcomes import Failed
 
-from panda_pytest_assertions.assert_context import assert_context, AssertContext
+from panda_pytest_assertions.assert_context import assert_context, AssertContext, ExceptionMatch
 
 
 def do_nothing(_: AssertContext) -> None:
@@ -12,7 +12,8 @@ def do_nothing(_: AssertContext) -> None:
 
 
 def raise_system_exit(_: AssertContext) -> None:
-    raise SystemExit
+    msg = 'yes'
+    raise SystemExit(msg)
 
 
 def set_123(context: AssertContext) -> None:
@@ -25,7 +26,8 @@ def set_none(context: AssertContext) -> None:
 
 def set_123_and_raise_system_exit(context: AssertContext) -> None:
     context.set(123)
-    raise SystemExit
+    msg = 'yes'
+    raise SystemExit(msg)
 
 
 @pytest.mark.parametrize(
@@ -35,6 +37,9 @@ def set_123_and_raise_system_exit(context: AssertContext) -> None:
         (do_nothing, {'exception': SystemExit}, Failed),
         (do_nothing, {'exception': ValueError}, Failed),
         (do_nothing, {'exception': None}, None),
+        (do_nothing, {'exception': ExceptionMatch(SystemExit, 'yes')}, Failed),
+        (do_nothing, {'exception': ExceptionMatch(SystemExit, 'no')}, Failed),
+        (do_nothing, {'exception': ExceptionMatch(ValueError, 'yes')}, Failed),
         (do_nothing, {'result': 123}, AssertionError),
         (do_nothing, {'result': None}, AssertionError),
         (do_nothing, {'exception': SystemExit, 'result': 123}, Failed),
@@ -42,12 +47,18 @@ def set_123_and_raise_system_exit(context: AssertContext) -> None:
         (do_nothing, {'exception': None, 'result': 123}, AssertionError),
         (do_nothing, {'behaviour': SystemExit}, Failed),
         (do_nothing, {'behaviour': ValueError}, Failed),
+        (do_nothing, {'behaviour': ExceptionMatch(SystemExit, 'yes')}, Failed),
+        (do_nothing, {'behaviour': ExceptionMatch(SystemExit, 'no')}, Failed),
+        (do_nothing, {'behaviour': ExceptionMatch(ValueError, 'yes')}, Failed),
         (do_nothing, {'behaviour': 123}, AssertionError),
         (do_nothing, {'behaviour': None}, AssertionError),
         (raise_system_exit, {}, SystemExit),
         (raise_system_exit, {'exception': SystemExit}, None),
         (raise_system_exit, {'exception': ValueError}, SystemExit),
         (raise_system_exit, {'exception': None}, SystemExit),
+        (raise_system_exit, {'exception': ExceptionMatch(SystemExit, 'yes')}, None),
+        (raise_system_exit, {'exception': ExceptionMatch(SystemExit, 'no')}, AssertionError),
+        (raise_system_exit, {'exception': ExceptionMatch(ValueError, 'yes')}, SystemExit),
         (raise_system_exit, {'result': 123}, SystemExit),
         (raise_system_exit, {'result': None}, SystemExit),
         (raise_system_exit, {'exception': SystemExit, 'result': 123}, AssertionError),
@@ -55,12 +66,18 @@ def set_123_and_raise_system_exit(context: AssertContext) -> None:
         (raise_system_exit, {'exception': None, 'result': 123}, SystemExit),
         (raise_system_exit, {'behaviour': SystemExit}, None),
         (raise_system_exit, {'behaviour': ValueError}, SystemExit),
+        (raise_system_exit, {'behaviour': ExceptionMatch(SystemExit, 'yes')}, None),
+        (raise_system_exit, {'behaviour': ExceptionMatch(SystemExit, 'no')}, AssertionError),
+        (raise_system_exit, {'behaviour': ExceptionMatch(ValueError, 'yes')}, SystemExit),
         (raise_system_exit, {'behaviour': 123}, SystemExit),
         (raise_system_exit, {'behaviour': None}, SystemExit),
         (set_123, {}, AssertionError),
         (set_123, {'exception': SystemExit}, Failed),
         (set_123, {'exception': ValueError}, Failed),
         (set_123, {'exception': None}, AssertionError),
+        (set_123, {'exception': ExceptionMatch(SystemExit, 'yes')}, Failed),
+        (set_123, {'exception': ExceptionMatch(SystemExit, 'no')}, Failed),
+        (set_123, {'exception': ExceptionMatch(ValueError, 'yes')}, Failed),
         (set_123, {'result': 123}, None),
         (set_123, {'result': None}, AssertionError),
         (set_123, {'exception': SystemExit, 'result': 123}, Failed),
@@ -68,12 +85,18 @@ def set_123_and_raise_system_exit(context: AssertContext) -> None:
         (set_123, {'exception': None, 'result': 123}, None),
         (set_123, {'behaviour': SystemExit}, Failed),
         (set_123, {'behaviour': ValueError}, Failed),
+        (set_123, {'behaviour': ExceptionMatch(SystemExit, 'yes')}, Failed),
+        (set_123, {'behaviour': ExceptionMatch(SystemExit, 'no')}, Failed),
+        (set_123, {'behaviour': ExceptionMatch(ValueError, 'yes')}, Failed),
         (set_123, {'behaviour': 123}, None),
         (set_123, {'behaviour': None}, AssertionError),
         (set_none, {}, AssertionError),
         (set_none, {'exception': SystemExit}, Failed),
         (set_none, {'exception': ValueError}, Failed),
         (set_none, {'exception': None}, AssertionError),
+        (set_none, {'exception': ExceptionMatch(SystemExit, 'yes')}, Failed),
+        (set_none, {'exception': ExceptionMatch(SystemExit, 'no')}, Failed),
+        (set_none, {'exception': ExceptionMatch(ValueError, 'yes')}, Failed),
         (set_none, {'result': 123}, AssertionError),
         (set_none, {'result': None}, None),
         (set_none, {'exception': SystemExit, 'result': 123}, Failed),
@@ -81,12 +104,18 @@ def set_123_and_raise_system_exit(context: AssertContext) -> None:
         (set_none, {'exception': None, 'result': 123}, AssertionError),
         (set_none, {'behaviour': SystemExit}, Failed),
         (set_none, {'behaviour': ValueError}, Failed),
+        (set_none, {'behaviour': ExceptionMatch(SystemExit, 'yes')}, Failed),
+        (set_none, {'behaviour': ExceptionMatch(SystemExit, 'no')}, Failed),
+        (set_none, {'behaviour': ExceptionMatch(ValueError, 'yes')}, Failed),
         (set_none, {'behaviour': 123}, AssertionError),
         (set_none, {'behaviour': None}, None),
         (set_123_and_raise_system_exit, {}, SystemExit),
         (set_123_and_raise_system_exit, {'exception': SystemExit}, AssertionError),
         (set_123_and_raise_system_exit, {'exception': ValueError}, SystemExit),
         (set_123_and_raise_system_exit, {'exception': None}, SystemExit),
+        (set_123_and_raise_system_exit, {'exception': ExceptionMatch(SystemExit, 'yes')}, AssertionError),
+        (set_123_and_raise_system_exit, {'exception': ExceptionMatch(SystemExit, 'no')}, AssertionError),
+        (set_123_and_raise_system_exit, {'exception': ExceptionMatch(ValueError, 'yes')}, SystemExit),
         (set_123_and_raise_system_exit, {'result': 123}, SystemExit),
         (set_123_and_raise_system_exit, {'result': None}, SystemExit),
         (set_123_and_raise_system_exit, {'exception': SystemExit, 'result': 123}, None),
@@ -94,6 +123,9 @@ def set_123_and_raise_system_exit(context: AssertContext) -> None:
         (set_123_and_raise_system_exit, {'exception': None, 'result': 123}, SystemExit),
         (set_123_and_raise_system_exit, {'behaviour': SystemExit}, AssertionError),
         (set_123_and_raise_system_exit, {'behaviour': ValueError}, SystemExit),
+        (set_123_and_raise_system_exit, {'behaviour': ExceptionMatch(SystemExit, 'yes')}, AssertionError),
+        (set_123_and_raise_system_exit, {'behaviour': ExceptionMatch(SystemExit, 'no')}, AssertionError),
+        (set_123_and_raise_system_exit, {'behaviour': ExceptionMatch(ValueError, 'yes')}, SystemExit),
         (set_123_and_raise_system_exit, {'behaviour': 123}, SystemExit),
         (set_123_and_raise_system_exit, {'behaviour': None}, SystemExit),
     ],

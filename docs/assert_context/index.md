@@ -1,6 +1,8 @@
 # `assert_context`
 
-The `assert_context` module exposes a context manager that verifies whether code within a `with` block behaves as expected. It checks whether a specific exception type was (or wasn't) raised within the block and whether the result of the block (settable by the user) matches the expected value.
+The `assert_context` module exposes a context manager that verifies whether code within a `with` block behaves as expected. It checks whether a exception of a specific type matching specific value was (or wasn't) raised within the block and whether the result of the block (settable by the user) matches the expected value.
+
+Module exposes `ExceptionMatch` class which allows to specify not only type of expected exception, but also a string which shall match raised exception value.
 
 Additionally, it provides the `AssertContext` class, which can be useful for typing in more complex scenarios, as it is the type returned by the `__enter__` method.
 
@@ -20,7 +22,8 @@ The context manager defines three optional keyword parameters: `exception`, `res
 
 ### `exception` Parameter
 
-- If the `exception` parameter is set, the `with` block is expected to raise an exception of the provided type.
+- If the `exception` parameter is set to exception type, the `with` block is expected to raise an exception of the provided type.
+- If the `exception` parameter is set to an instance of `ExceptionMatch` class, the `with` block is expected to raise an exception of type specified in `type_` field and the value that matches the string specified in `match_` field. For exact matching logic see `match` parameter of the `pytest.raises`.
 - If the `exception` parameter is NOT set or is set to `None`, the `with` block is expected NOT to raise any exceptions.
 
 #### Examples
@@ -100,7 +103,7 @@ with assert_context(exception=ValueError, result='something') as context:
 
 ### `behaviour` Parameter
 
-- If `behaviour` is set to an exception type, it is equivalent to setting `exception` to the same value and leaving `result` unset.
+- If `behaviour` is set to an exception type or `ExceptionMatch` instance, it is equivalent to setting `exception` to the same value and leaving `result` unset.
 - If `behaviour` is set to any other value, it is treated as the value of `result`, and the `exception` parameter remains unset.
 
 #### Examples
