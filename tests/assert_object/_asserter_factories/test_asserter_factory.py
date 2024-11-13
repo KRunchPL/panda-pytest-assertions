@@ -87,7 +87,7 @@ def test_create():
 
     asserter = AsserterFactory.create(123)
     assert isinstance(asserter, IntAsserter)
-    assert asserter.expectation == 123  # noqa: PLR2004
+    assert asserter.expectation == 123
 
 
 def test_register_asserter():

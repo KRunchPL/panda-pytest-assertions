@@ -88,7 +88,7 @@ def test_create():
 
     generator = GeneratorFactory.create(123)
     assert isinstance(generator, IntGenerator)
-    assert generator.definition == 123  # noqa: PLR2004
+    assert generator.definition == 123
 
 
 def test_register_generator():

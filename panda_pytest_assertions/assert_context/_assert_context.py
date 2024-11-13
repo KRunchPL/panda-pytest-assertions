@@ -36,7 +36,7 @@ class AssertContext:
 @contextmanager
 def assert_context(  # noqa: D418
     *,
-    exception: type[Exception] | _Unset = ...,
+    exception: type[BaseException] | _Unset = ...,
     result: Any | _Unset = ...,  # noqa: ANN401
 ) -> Generator[AssertContext, None, None]:
     """
@@ -60,7 +60,7 @@ def assert_context(  # noqa: D418
 @contextmanager
 def assert_context(  # noqa: D418
     *,
-    behaviour: type[Exception] | Any | _Unset = ...,  # noqa: ANN401
+    behaviour: type[BaseException] | Any | _Unset = ...,  # noqa: ANN401
 ) -> Generator[AssertContext, None, None]:
     """
     Context manager that makes sure `with` block behaved according to the arguments.
@@ -86,9 +86,9 @@ def assert_context(  # noqa: D418
 @contextmanager
 def assert_context(
     *,
-    exception: type[Exception] | _Unset = _UNSET,
+    exception: type[BaseException] | _Unset = _UNSET,
     result: Any | _Unset = _UNSET,
-    behaviour: type[Exception] | Any | _Unset = _UNSET,
+    behaviour: type[BaseException] | Any | _Unset = _UNSET,
 ) -> Generator[AssertContext, None, None]:
     """
     Context manager that makes sure `with` block behaved according to the arguments.
@@ -115,7 +115,7 @@ def assert_context(
     if behaviour != _UNSET:
         assert exception == _UNSET
         assert result == _UNSET
-        if isinstance(behaviour, type) and issubclass(behaviour, Exception):
+        if isinstance(behaviour, type) and issubclass(behaviour, BaseException):
             exception = behaviour
         else:
             result = behaviour

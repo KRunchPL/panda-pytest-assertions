@@ -71,7 +71,7 @@ def _(loader: ExpectationYamlLoader, node: yaml.Node) -> Stringified:
             problem_mark=node.start_mark,
         )
     # I was not able to produce yaml that would return something else than a string
-    node_data = cast(str, loader.construct_scalar(node))
+    node_data = loader.construct_scalar(node)
     return Stringified(node_data)
 
 

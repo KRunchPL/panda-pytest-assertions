@@ -11,66 +11,66 @@ def do_nothing(_: AssertContext) -> None:
     pass
 
 
-def raise_connection_error(_: AssertContext) -> None:
-    raise ConnectionError
+def raise_system_exit(_: AssertContext) -> None:
+    raise SystemExit
 
 
 def set_123(context: AssertContext) -> None:
     context.set(123)
 
 
-def set_123_and_raise_connection_error(context: AssertContext) -> None:
+def set_123_and_raise_system_exit(context: AssertContext) -> None:
     context.set(123)
-    raise ConnectionError
+    raise SystemExit
 
 
 @pytest.mark.parametrize(
     ['function', 'arguments', 'expected_exception'],
     [
         (do_nothing, {}, None),
-        (do_nothing, {'exception': ConnectionError}, Failed),
+        (do_nothing, {'exception': SystemExit}, Failed),
         (do_nothing, {'exception': ValueError}, Failed),
         (do_nothing, {'result': 123}, AssertionError),
         (do_nothing, {'result': None}, AssertionError),
-        (do_nothing, {'exception': ConnectionError, 'result': 123}, Failed),
+        (do_nothing, {'exception': SystemExit, 'result': 123}, Failed),
         (do_nothing, {'exception': ValueError, 'result': 123}, Failed),
-        (do_nothing, {'behaviour': ConnectionError}, Failed),
+        (do_nothing, {'behaviour': SystemExit}, Failed),
         (do_nothing, {'behaviour': ValueError}, Failed),
         (do_nothing, {'behaviour': 123}, AssertionError),
         (do_nothing, {'behaviour': None}, AssertionError),
-        (raise_connection_error, {}, ConnectionError),
-        (raise_connection_error, {'exception': ConnectionError}, None),
-        (raise_connection_error, {'exception': ValueError}, ConnectionError),
-        (raise_connection_error, {'result': 123}, ConnectionError),
-        (raise_connection_error, {'result': None}, ConnectionError),
-        (raise_connection_error, {'exception': ConnectionError, 'result': 123}, AssertionError),
-        (raise_connection_error, {'exception': ValueError, 'result': 123}, ConnectionError),
-        (raise_connection_error, {'behaviour': ConnectionError}, None),
-        (raise_connection_error, {'behaviour': ValueError}, ConnectionError),
-        (raise_connection_error, {'behaviour': 123}, ConnectionError),
-        (raise_connection_error, {'behaviour': None}, ConnectionError),
+        (raise_system_exit, {}, SystemExit),
+        (raise_system_exit, {'exception': SystemExit}, None),
+        (raise_system_exit, {'exception': ValueError}, SystemExit),
+        (raise_system_exit, {'result': 123}, SystemExit),
+        (raise_system_exit, {'result': None}, SystemExit),
+        (raise_system_exit, {'exception': SystemExit, 'result': 123}, AssertionError),
+        (raise_system_exit, {'exception': ValueError, 'result': 123}, SystemExit),
+        (raise_system_exit, {'behaviour': SystemExit}, None),
+        (raise_system_exit, {'behaviour': ValueError}, SystemExit),
+        (raise_system_exit, {'behaviour': 123}, SystemExit),
+        (raise_system_exit, {'behaviour': None}, SystemExit),
         (set_123, {}, AssertionError),
-        (set_123, {'exception': ConnectionError}, Failed),
+        (set_123, {'exception': SystemExit}, Failed),
         (set_123, {'exception': ValueError}, Failed),
         (set_123, {'result': 123}, None),
         (set_123, {'result': None}, AssertionError),
-        (set_123, {'exception': ConnectionError, 'result': 123}, Failed),
+        (set_123, {'exception': SystemExit, 'result': 123}, Failed),
         (set_123, {'exception': ValueError, 'result': 123}, Failed),
-        (set_123, {'behaviour': ConnectionError}, Failed),
+        (set_123, {'behaviour': SystemExit}, Failed),
         (set_123, {'behaviour': ValueError}, Failed),
         (set_123, {'behaviour': 123}, None),
         (set_123, {'behaviour': None}, AssertionError),
-        (set_123_and_raise_connection_error, {}, ConnectionError),
-        (set_123_and_raise_connection_error, {'exception': ConnectionError}, AssertionError),
-        (set_123_and_raise_connection_error, {'exception': ValueError}, ConnectionError),
-        (set_123_and_raise_connection_error, {'result': 123}, ConnectionError),
-        (set_123_and_raise_connection_error, {'result': None}, ConnectionError),
-        (set_123_and_raise_connection_error, {'exception': ConnectionError, 'result': 123}, None),
-        (set_123_and_raise_connection_error, {'exception': ValueError, 'result': 123}, ConnectionError),
-        (set_123_and_raise_connection_error, {'behaviour': ConnectionError}, AssertionError),
-        (set_123_and_raise_connection_error, {'behaviour': ValueError}, ConnectionError),
-        (set_123_and_raise_connection_error, {'behaviour': 123}, ConnectionError),
-        (set_123_and_raise_connection_error, {'behaviour': None}, ConnectionError),
+        (set_123_and_raise_system_exit, {}, SystemExit),
+        (set_123_and_raise_system_exit, {'exception': SystemExit}, AssertionError),
+        (set_123_and_raise_system_exit, {'exception': ValueError}, SystemExit),
+        (set_123_and_raise_system_exit, {'result': 123}, SystemExit),
+        (set_123_and_raise_system_exit, {'result': None}, SystemExit),
+        (set_123_and_raise_system_exit, {'exception': SystemExit, 'result': 123}, None),
+        (set_123_and_raise_system_exit, {'exception': ValueError, 'result': 123}, SystemExit),
+        (set_123_and_raise_system_exit, {'behaviour': SystemExit}, AssertionError),
+        (set_123_and_raise_system_exit, {'behaviour': ValueError}, SystemExit),
+        (set_123_and_raise_system_exit, {'behaviour': 123}, SystemExit),
+        (set_123_and_raise_system_exit, {'behaviour': None}, SystemExit),
     ],
 )
 def test(

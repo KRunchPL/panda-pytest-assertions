@@ -9,5 +9,5 @@ def test_init():
 
     instance = OfTypeDef(expected_type, object_definition)
 
-    assert instance.expected_type is expected_type  # type: ignore [comparison-overlap]
+    assert instance.expected_type is expected_type
     assert instance.object_definition is object_definition
