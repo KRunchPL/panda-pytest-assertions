@@ -36,14 +36,14 @@ class AssertContext:
 @contextmanager
 def assert_context(  # noqa: D418
     *,
-    exception: type[BaseException] | _Unset = ...,
+    exception: type[BaseException] | None | _Unset = ...,
     result: Any | _Unset = ...,  # noqa: ANN401
 ) -> Generator[AssertContext, None, None]:
     """
     Context manager that makes sure `with` block behaved according to the arguments.
 
     If the `exception` parameter is set, the `with` block is expected to raise an exception of provided type.
-    If it is NOT set, the `with` block is expected NOT TO raise any exceptions.
+    If it is NOT set or is set to `None`, the `with` block is expected NOT TO raise any exceptions.
 
     If the `result` parameter is set, its value is expected to be equal to `with` block result. The `with`
     block result is set with the `set` method of an object yielded by the context manager. The comparison
@@ -86,7 +86,7 @@ def assert_context(  # noqa: D418
 @contextmanager
 def assert_context(
     *,
-    exception: type[BaseException] | _Unset = _UNSET,
+    exception: type[BaseException] | None | _Unset = _UNSET,
     result: Any | _Unset = _UNSET,
     behaviour: type[BaseException] | Any | _Unset = _UNSET,
 ) -> Generator[AssertContext, None, None]:
@@ -99,7 +99,7 @@ def assert_context(
     `exception` remains unset.
 
     If the `exception` parameter is set, the `with` block is expected to raise an exception of provided type.
-    If it is NOT set, the `with` block is expected NOT TO raise any exceptions.
+    If it is NOT set or is set to `None`, the `with` block is expected NOT TO raise any exceptions.
 
     If the `result` parameter is set, its value is expected to be equal to `with` block result. The `with`
     block result is set with the `set` method of an object yielded by the context manager. The comparison
@@ -120,7 +120,7 @@ def assert_context(
         else:
             result = behaviour
     context = AssertContext()
-    exception_behaviour = nullcontext() if isinstance(exception, _Unset) else pytest.raises(exception)
+    exception_behaviour = nullcontext() if isinstance(exception, _Unset | None) else pytest.raises(exception)
 
     with ExitStack() as behaviours_stack:
         behaviours_stack.enter_context(context.assert_result_equal(result))

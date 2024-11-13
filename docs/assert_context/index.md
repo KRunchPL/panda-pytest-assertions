@@ -21,7 +21,7 @@ The context manager defines three optional keyword parameters: `exception`, `res
 ### `exception` Parameter
 
 - If the `exception` parameter is set, the `with` block is expected to raise an exception of the provided type.
-- If the `exception` parameter is NOT set, the `with` block is expected NOT to raise any exceptions.
+- If the `exception` parameter is NOT set or is set to `None`, the `with` block is expected NOT to raise any exceptions.
 
 #### Examples
 
