@@ -1,3 +1,4 @@
+from .identity import Is
 from .is_type import is_type, IsType
 from .mapping_subset import MappingSubset
 from .object_attibutes import ObjectAttributes
@@ -7,6 +8,7 @@ from .with_type import with_type, WithType
 
 
 __all__ = [
+    'Is',
     'is_type',
     'IsType',
     'MappingSubset',

@@ -7,6 +7,7 @@ from ._converters import (
     ExpectationYamlLoader,
 )
 from ._expectation_modificators import (
+    Is,
     is_type,
     IsType,
     MappingSubset,
@@ -29,6 +30,7 @@ __all__ = [
     'expectation_from_yaml',
     'ExpectationYamlDumper',
     'ExpectationYamlLoader',
+    'Is',
     'is_type',
     'IsType',
     'MappingSubset',

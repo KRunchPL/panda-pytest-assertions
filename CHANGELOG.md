@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * `assert_object` module
     * `IsType` expectation that checks object's type.
+    * `Is` expectation that checks object's identity.
 
 ## [0.2.0] - 2024-11-13
 

@@ -1,5 +1,6 @@
 from panda_pytest_assertions.assert_object._objects_asserters import (
     EqualityAsserter,
+    IdentityAsserter,
     IsTypeAsserter,
     MappingAsserter,
     MappingSubsetAsserter,
@@ -21,6 +22,7 @@ class BuiltInAsserterFactory(AsserterFactory):
 
 # MUST be the first one as it implements a fallback mechanism and matches everything
 BuiltInAsserterFactory.register_asserter(EqualityAsserter)
+BuiltInAsserterFactory.register_asserter(IdentityAsserter)
 BuiltInAsserterFactory.register_asserter(IsTypeAsserter)
 BuiltInAsserterFactory.register_asserter(MappingAsserter)
 BuiltInAsserterFactory.register_asserter(MappingSubsetAsserter)

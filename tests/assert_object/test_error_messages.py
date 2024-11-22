@@ -6,6 +6,7 @@ from munch import Munch
 
 from panda_pytest_assertions.assert_object import (
     assert_object,
+    Is,
     IsType,
     MappingSubset,
     ObjectAttributes,
@@ -22,6 +23,9 @@ from panda_pytest_assertions.assert_object import (
         # primitives
         (1, 3, 'Object assertion failed. assert 3 == 1'),
         ('xyz', 'abc', "Object assertion failed. assert 'abc' == 'xyz'"),
+        # is
+        ('xyz', Is('abc'), "Object assertion failed. assert 'abc' is 'xyz'"),
+        ({}, Is({}), 'Object assertion failed. assert {} is {}'),
         # mapping
         (
             {'abc': 1, 'xyz': 2},
