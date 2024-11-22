@@ -84,6 +84,47 @@ expected_type_name: abc
 expected_type_module: 1
 """
         ),
+        (
+            """\
+!IsType
+- 1
+- 2
+"""
+        ),
+        (
+            """\
+!IsType
+expected_type_module: abc
+"""
+        ),
+        (
+            """\
+!IsType
+expected_type_name: abc
+"""
+        ),
+        (
+            """\
+!IsType
+incorrect: 1
+expected_type_name: abc
+expected_type_module: abc
+"""
+        ),
+        (
+            """\
+!IsType
+expected_type_name: 1
+expected_type_module: abc
+"""
+        ),
+        (
+            """\
+!IsType
+expected_type_name: abc
+expected_type_module: 1
+"""
+        ),
     ],
 )
 def test_exceptions(input_yaml: str):

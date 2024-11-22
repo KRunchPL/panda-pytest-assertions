@@ -7,6 +7,7 @@ from munch import Munch
 
 from panda_pytest_assertions.assert_object import (
     assert_object,
+    is_type,
     MappingSubset,
     ObjectAttributes,
     Stringified,
@@ -74,6 +75,7 @@ def test_complex_correct():
                 'prizes': {},
             },
         ),
+        songs=[],
     )
     expectation = with_type('Munch', 'munch')(
         ObjectAttributes(
@@ -121,6 +123,7 @@ def test_complex_correct():
                     MappingSubset({'prizes': {}}),
                     MappingSubset({'polish_title': 'Czarna woda'}),
                 ),
+                'songs': is_type(list),
             },
         ),
     )
@@ -184,6 +187,8 @@ def test_flat_object():
     assert_object(Stringified("Munch({'color': 'brown', 'legs': 4})"), asserted_object)
     assert_object(with_type()(asserted_object), asserted_object)
     assert_object(with_type(Munch)(Stringified("Munch({'color': 'brown', 'legs': 4})")), asserted_object)
+    assert_object(is_type(Munch), asserted_object)
+    assert_object(is_type('Munch', 'munch'), asserted_object)
 
     with pytest.raises(AssertionError):
         assert_object(ObjectAttributes({'color': 'brown', 'legs': 4, 'fur': True}), asserted_object)
@@ -195,6 +200,8 @@ def test_flat_object():
         assert_object(Stringified('Munch()'), asserted_object)
     with pytest.raises(AssertionError):
         assert_object(with_type(str)(Stringified("Munch({'color': 'brown', 'legs': 4})")), asserted_object)
+    with pytest.raises(AssertionError):
+        assert_object(is_type(str), asserted_object)
 
 
 def test_lists():

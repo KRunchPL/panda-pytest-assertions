@@ -4,6 +4,7 @@ from typing import Any
 import pytest
 
 from panda_pytest_assertions.assert_object import (
+    is_type,
     MappingSubset,
     ObjectAttributes,
     Stringified,
@@ -66,6 +67,7 @@ def complex_expectation() -> Any:  # noqa: ANN401
                     MappingSubset({'prizes': {}}),
                     MappingSubset({'polish_title': 'Czarna woda'}),
                 ),
+                'songs': is_type(list),
             },
         ),
     )
@@ -117,6 +119,9 @@ expectation: !ObjectAttributes
     prizes: {}
   - !MappingSubset
     polish_title: Czarna woda
+  songs: !IsType
+    expected_type_module: builtins
+    expected_type_name: list
 expected_type_module: munch
 expected_type_name: Munch
 """

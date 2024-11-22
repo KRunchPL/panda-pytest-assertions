@@ -1,6 +1,7 @@
 from .._generators import (  # noqa: TID252
     EqualityGenerator,
     EqualityKeyMappingGenerator,
+    IsTypeGenerator,
     MappingGenerator,
     MappingSubsetGenerator,
     ObjectAttributesGenerator,
@@ -25,6 +26,7 @@ class BuiltInGeneratorFactory(GeneratorFactory):
 
 BuiltInGeneratorFactory.register_generator(EqualityGenerator)
 BuiltInGeneratorFactory.register_generator(EqualityKeyMappingGenerator)
+BuiltInGeneratorFactory.register_generator(IsTypeGenerator)
 BuiltInGeneratorFactory.register_generator(MappingGenerator)
 BuiltInGeneratorFactory.register_generator(MappingSubsetGenerator)
 BuiltInGeneratorFactory.register_generator(ObjectAttributesGenerator)

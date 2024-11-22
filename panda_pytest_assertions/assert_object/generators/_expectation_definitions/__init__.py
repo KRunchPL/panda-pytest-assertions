@@ -1,4 +1,5 @@
 from .equality import EqualityDef
+from .is_type import IsTypeDef
 from .mapping import MappingDef
 from .mapping_subset import MappingSubsetDef
 from .object_attributes import ObjectAttributesDef
@@ -14,6 +15,7 @@ from .with_type import with_type_def, WithTypeDef
 
 __all__ = [
     'EqualityDef',
+    'IsTypeDef',
     'MappingDef',
     'MappingSubsetDef',
     'ObjectAttributesDef',

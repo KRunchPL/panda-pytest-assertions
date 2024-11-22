@@ -5,6 +5,7 @@ from typing import Any, TypeVar
 import yaml
 
 from panda_pytest_assertions.assert_object._expectation_modificators import (
+    IsType,
     MappingSubset,
     ObjectAttributes,
     Stringified,
@@ -70,6 +71,11 @@ def _(dumper: ExpectationYamlDumper, data: Unordered) -> yaml.SequenceNode:
 @ExpectationYamlDumper.add_repr(WithType)
 def _with_type_representer(dumper: ExpectationYamlDumper, data: WithType) -> yaml.MappingNode:
     return dumper.represent_mapping('!WithType', data.__dict__)
+
+
+@ExpectationYamlDumper.add_repr(IsType)
+def _(dumper: ExpectationYamlDumper, data: IsType) -> yaml.MappingNode:
+    return dumper.represent_mapping('!IsType', data.__dict__)
 
 
 @ExpectationYamlDumper.add_repr(Enum, is_multi=True)

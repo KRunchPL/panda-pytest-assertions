@@ -6,6 +6,7 @@ from munch import Munch
 
 from panda_pytest_assertions.assert_object import (
     assert_object,
+    IsType,
     MappingSubset,
     ObjectAttributes,
     Stringified,
@@ -121,6 +122,23 @@ from panda_pytest_assertions.assert_object import (
         (
             1,
             WithType(1, 'int', 'munch'),
+            (
+                'Object assertion failed. Object type ("<class \'int\'>") is from invalid module. '
+                'Expected "munch", got "builtins".'
+            ),
+        ),
+        # is type
+        (
+            1,
+            IsType('str', 'builtins'),
+            (
+                'Object assertion failed. Object type ("<class \'int\'>") has invalid name. '
+                'Expected "str", got "int".'
+            ),
+        ),
+        (
+            1,
+            IsType('int', 'munch'),
             (
                 'Object assertion failed. Object type ("<class \'int\'>") is from invalid module. '
                 'Expected "munch", got "builtins".'

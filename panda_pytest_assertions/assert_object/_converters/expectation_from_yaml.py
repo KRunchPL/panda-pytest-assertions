@@ -5,6 +5,7 @@ import yaml
 from yaml.constructor import ConstructorError
 
 from panda_pytest_assertions.assert_object._expectation_modificators import (
+    IsType,
     MappingSubset,
     ObjectAttributes,
     Stringified,
@@ -112,3 +113,32 @@ def _(loader: ExpectationYamlLoader, node: yaml.Node) -> WithType:
             problem_mark=node.start_mark,
         )
     return WithType(node_data['expectation'], expected_type_name, expected_type_module)
+
+
+_IS_TYPE_KEYS = {'expected_type_name', 'expected_type_module'}
+
+
+@ExpectationYamlLoader.add_construct('!IsType')
+def _(loader: ExpectationYamlLoader, node: yaml.Node) -> IsType:
+    if not isinstance(node, yaml.MappingNode):
+        raise ConstructorError(
+            problem=f'expected a mapping node, but found {type(node)}',
+            problem_mark=node.start_mark,
+        )
+    node_data = loader.construct_mapping(node)
+    if node_data.keys() != _IS_TYPE_KEYS:
+        raise ConstructorError(
+            problem=f'IsType keys must be {_IS_TYPE_KEYS}',
+            problem_mark=node.start_mark,
+        )
+    if not isinstance(expected_type_name := node_data['expected_type_name'], str):
+        raise ConstructorError(
+            problem='value of IsType "expected_type_name" must be a string',
+            problem_mark=node.start_mark,
+        )
+    if not isinstance(expected_type_module := node_data['expected_type_module'], str | None):
+        raise ConstructorError(
+            problem='value of IsType "expected_type_module" must be a string or None',
+            problem_mark=node.start_mark,
+        )
+    return IsType(expected_type_name, expected_type_module)

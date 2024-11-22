@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "panda-pytest-assertions"
-version = "0.2.0"
+version = "0.2.1-dev"
 description = "Complex assertions that can be used when writing test with pytest"
 authors = ["Cyber Panda <krunchfrompoland@gmail.com>"]
 readme = "README.md"

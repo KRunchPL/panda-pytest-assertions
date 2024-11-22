@@ -1,6 +1,7 @@
 from .equality_generator import EqualityGenerator
 from .equality_key_mapping_generator import EqualityKeyMappingGenerator
 from .generator import Generator
+from .is_type_generator import IsTypeGenerator
 from .mapping_generator import MappingGenerator
 from .mapping_subset_generator import MappingSubsetGenerator
 from .object_attributes_generator import ObjectAttributesGenerator
@@ -17,6 +18,7 @@ from .with_type_generator import WithTypeGenerator
 
 __all__ = [
     'Generator',
+    'IsTypeGenerator',
     'EqualityGenerator',
     'EqualityKeyMappingGenerator',
     'MappingGenerator',

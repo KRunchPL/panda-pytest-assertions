@@ -6,6 +6,7 @@ import pytest
 from munch import Munch
 
 from panda_pytest_assertions.assert_object import (
+    IsType,
     MappingSubset,
     ObjectAttributes,
     Stringified,
@@ -15,9 +16,11 @@ from panda_pytest_assertions.assert_object import (
 from panda_pytest_assertions.assert_object.generators import (
     EqualityDef,
     generate_expectation,
+    IsTypeDef,
     MappingDef,
     MappingSubsetDef,
     ObjectAttributesDef,
+    OfTypeDef,
     StringifiedDef,
     uniform_ordered_def,
     UniformMappingDef,
@@ -26,9 +29,8 @@ from panda_pytest_assertions.assert_object.generators import (
     UniformUnorderedDef,
     UnionDef,
     with_type_def,
+    WithTypeDef,
 )
-from panda_pytest_assertions.assert_object.generators._expectation_definitions.of_type import OfTypeDef
-from panda_pytest_assertions.assert_object.generators._expectation_definitions.with_type import WithTypeDef
 
 
 def test_complex():
@@ -90,6 +92,7 @@ def test_complex():
                 'prizes': {},
             },
         ),
+        songs=[],
     )
     definition = with_type_def(include_module=True)(
         ObjectAttributesDef(
@@ -143,6 +146,7 @@ def test_complex():
                         ),
                     ),
                 ),
+                'songs': IsTypeDef(),
             },
         ),
     )
@@ -401,5 +405,20 @@ def test_with_type(include_module: bool):
     assert isinstance(expectation, WithType)
     assert isinstance(expectation.expectation, Stringified)
     assert expectation.expectation.stringified_value == str(object_)
+    assert expectation.expected_type_name == 'Munch'
+    assert expectation.expected_type_module == ('munch' if include_module else None)
+
+
+@pytest.mark.parametrize('include_module', [True, False])
+def test_is_type(include_module: bool):
+    definition = IsTypeDef(include_module=include_module)
+    object_: Munch[str, Any] = Munch(
+        attr_1='value_1',
+        attr_2='value_2',
+        attr_3='value_3',
+    )
+    expectation = generate_expectation(object_, definition)
+
+    assert isinstance(expectation, IsType)
     assert expectation.expected_type_name == 'Munch'
     assert expectation.expected_type_module == ('munch' if include_module else None)

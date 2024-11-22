@@ -1,5 +1,6 @@
 from ._expectation_definitions import (
     EqualityDef,
+    IsTypeDef,
     MappingDef,
     MappingSubsetDef,
     ObjectAttributesDef,
@@ -21,6 +22,7 @@ from ._generators import Generator
 
 __all__ = [
     'EqualityDef',
+    'IsTypeDef',
     'MappingDef',
     'MappingSubsetDef',
     'ObjectAttributesDef',
