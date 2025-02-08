@@ -2,56 +2,121 @@
 
 This file contains the most important developer information for the repository.
 
+## Cloning the repository
+
+Of course this repository is cloned as all others, with `git clone` command, but there is one additional issue you should be aware of before proceeding.
+
+## Symlinks
+
+All developers tools' configuration files are kept in a directory `.config`. Most of the tools are by default looking for configuration files under specific names in the CWD. In order to use configuration files from different paths, one must specify the path in the command line. In order to avoid this inconvenience, the main folder of repository contains symlinks to proper files of `.config` directory.
+
+### Checking for symlink permissions
+
+Before cloning a repository, make sure that you can create symlinks in the folder that you will be cloning into. If git will establish a lack of permissions, it will clone the repository, but the symlinks will be broken (they will be simple text files containing a path to the original file). That is why it is important to check for permissions and fix them if necessary.
+
+#### Linux / MacOS
+
+Make sure you have symlinks enabled globally in git:
+
+```bash
+git config --global core.symlinks true
+```
+
+Execute the following commands:
+
+```bash
+ln -s existing_source_file symbolic_link
+ls -l | grep symbolic_link
+rm symbolic_link
+```
+
+The output should not contain any errors and should look something like this:
+
+```raw
+lrwxrwxrwx 1 user user   20 Nov  9 21:36 symbolic_link -> existing_source_file
+```
+
+#### Windows
+
+Make sure you have symlinks enabled globally in git:
+
+```bash
+git config --global core.symlinks true
+```
+
+Execute the following commands in `cmd` (NOT in Powershell):
+
+```cmd
+mklink symbolic_link existing_source_file & dir | findstr /c:"symbolic_link" & del symbolic_link
+```
+
+The output should not contain any errors and should look something like this:
+
+```raw
+symbolic link created for symbolic_link <<===>> existing_source_file
+09.11.2023  23:20    <SYMLINK>      symbolic_link [existing_source_file]
+```
+
+Especially you should NOT see:
+
+```raw
+You do not have sufficient privilege to perform this operation.
+```
+
+### Fixing symlink permissions
+
+If you don't have permission to create symlinks, this section describes how to fix it.
+
+#### Windows
+
+1. Click `Win + R`, type `gpedit.msc` and click `Enter`.
+1. In the left / "folder" part of window go to: `Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> User Rights Assignment`.
+1. In the right part of the window find `Create symbolic links` and double click (or right-click and select `Properties`).
+1. In the new window click `Add User or Group...` button.
+1. In the only editable field (`Enter the object names to select`) enter your Windows username.
+1. Click the `Check Names` button and wait until the username you entered gets resolved to something like `COMPUTER-NAME\username`.
+1. Click the `OK` button in the window.
+1. Click the `OK` button in the window.
+1. Restart Windows.
+1. Verify that you have permissions to create symlinks.
+1. See [Git settings](#git-settings) below.
+
+Reference: [Allowing non-administrators to create symbolic links](https://github.com/git-for-windows/git/wiki/Symbolic-Links#allowing-non-administrators-to-create-symbolic-links)
+
+#### Git settings
+
+If you have already cloned a repository that uses symlinks before fixing system's permission, you will probably need to change settings in it. Even if you have option `core.symlinks` enabled in your global git configuration, when during repository cloning git finds out that you don't have permissions to create symlink, it will set `core.symlinks` to false in the repository settings.
+
+To make sure local repository configuration is not overriding the global setting, execute the following command IN THE REPOSITORY FOLDER:
+
+```bash
+git config --unset core.symlinks
+```
+
 ## Python
 
 Python part of the code shall follow those base guidelines:
 
 * is compatible with Python version >=3.10.0,
 * all code shall pass configured static code checks,
-* all defined unit test shall pass,
+* all defined test shall pass,
 * all code shall be covered by unit tests.
+
+Project metadata, including dependencies is being kept in `pyproject.toml`, as defined in [the specification](https://packaging.python.org/en/latest/specifications/pyproject-toml/).
 
 ### Library dependencies
 
-Project is using [Poetry](https://python-poetry.org/) to manage dependencies and building packages.
+Project is using [UV](https://github.com/astral-sh/uv) to manage dependencies and building packages.
 
-To install Poetry on your system follow the guide here: [Poetry Installation](https://python-poetry.org/docs/#installation)
+The [UV documentation](https://docs.astral.sh/uv/) describes how to install and use UV.
 
-If you want to have virtualenv created in `.venv` folder in repository root, configure Poetry with following command:
+### Tests
 
-```console
-poetry config virtualenvs.in-project true
-```
+Tests shall be written using pytest and put in the `tests` directory in the repository root.
 
-To create a venv and install all dependencies:
+Dependencies required only by tests shall not be added to package dependencies, but to `dev` dependency group.
 
-```console
-poetry install --no-root --sync
-```
-
-To add a production dependency:
-
-```console
-poetry add <dependency name>
-```
-
-To add a development dependency (like one used by tests):
-
-```console
-poetry add --group dev <dependency name>
-```
-
-To build new package:
-
-```console
-poetry build
-```
-
-### Unit tests
-
-Unit tests shall be written using pytest and put in the `tests` directory in the repository root. For dependencies handling see [Dependencies section](#library-dependencies).
-
-To run all the unit tests use the `pytest` command without any parameters in the main folder of the repo. This will start all the unit tests from the `tests` package and count coverage for every python file in the project package.
+To run all tests use the `pytest` command without any parameters in the main folder of the repo. This will execute all the tests defined in the `tests` package and count coverage for every python file in the `src` folder.
 
 Results will be written to standard output. Coverage can be found in the `.coverage` file and the HTML version of the report will be put in the `coverage-report` directory.
 
