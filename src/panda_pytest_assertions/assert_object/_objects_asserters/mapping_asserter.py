@@ -43,9 +43,9 @@ class MappingAsserter(Asserter):
         :param object_: an object to be tested
         """
         assert isinstance(object_, Mapping), f'Object must be a mapping. Got: {type(object_)}.'
-        assert (
-            object_.keys() == self._items_asserters.keys()
-        ), 'Object keys must be equal to expectation keys.'
+        assert object_.keys() == self._items_asserters.keys(), (
+            'Object keys must be equal to expectation keys.'
+        )
         for key, asserter in self._items_asserters.items():
             object_value = object_[key]
             try:

@@ -17,19 +17,19 @@ from .with_type_generator import WithTypeGenerator
 
 
 __all__ = [
-    'Generator',
-    'IsTypeGenerator',
     'EqualityGenerator',
     'EqualityKeyMappingGenerator',
+    'Generator',
+    'IsTypeGenerator',
     'MappingGenerator',
     'MappingSubsetGenerator',
     'ObjectAttributesGenerator',
     'OfTypeGenerator',
     'OrderedGenerator',
     'StringifiedGenerator',
-    'UniformOrderedGenerator',
     'UniformMappingGenerator',
     'UniformMappingSubsetGenerator',
+    'UniformOrderedGenerator',
     'UnionGenerator',
     'UnorderedGenerator',
     'WithTypeGenerator',

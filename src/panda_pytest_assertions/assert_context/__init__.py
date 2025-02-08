@@ -10,7 +10,7 @@ from ._assert_context import assert_context, AssertContext, ExceptionMatch
 
 
 __all__ = [
-    'assert_context',
     'AssertContext',
     'ExceptionMatch',
+    'assert_context',
 ]

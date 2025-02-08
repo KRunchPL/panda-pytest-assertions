@@ -23,10 +23,10 @@ __all__ = [
     'StringifiedDef',
     'UniformMappingDef',
     'UniformMappingSubsetDef',
-    'uniform_ordered_def',
     'UniformOrderedDef',
     'UniformUnorderedDef',
     'UnionDef',
-    'with_type_def',
     'WithTypeDef',
+    'uniform_ordered_def',
+    'with_type_def',
 ]

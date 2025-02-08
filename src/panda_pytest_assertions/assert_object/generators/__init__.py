@@ -21,23 +21,23 @@ from ._generators import Generator
 
 
 __all__ = [
+    'BuiltInGeneratorFactory',
     'EqualityDef',
+    'Generator',
+    'GeneratorFactory',
     'IsTypeDef',
     'MappingDef',
     'MappingSubsetDef',
     'ObjectAttributesDef',
     'OfTypeDef',
     'StringifiedDef',
-    'uniform_ordered_def',
     'UniformMappingDef',
     'UniformMappingSubsetDef',
     'UniformOrderedDef',
     'UniformUnorderedDef',
     'UnionDef',
-    'with_type_def',
     'WithTypeDef',
     'generate_expectation',
-    'BuiltInGeneratorFactory',
-    'GeneratorFactory',
-    'Generator',
+    'uniform_ordered_def',
+    'with_type_def',
 ]

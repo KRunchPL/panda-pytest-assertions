@@ -3,8 +3,8 @@ from .expectation_to_yaml import expectation_to_yaml, ExpectationYamlDumper
 
 
 __all__ = [
-    'expectation_from_yaml',
-    'ExpectationYamlLoader',
-    'expectation_to_yaml',
     'ExpectationYamlDumper',
+    'ExpectationYamlLoader',
+    'expectation_from_yaml',
+    'expectation_to_yaml',
 ]

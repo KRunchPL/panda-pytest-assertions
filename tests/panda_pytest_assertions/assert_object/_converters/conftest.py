@@ -89,7 +89,7 @@ expectation: !ObjectAttributes
     translations: !MappingSubset
       ? !WithType
         expectation: !Stringified 'Language.PL'
-        expected_type_module: tests.assert_object._converters.conftest
+        expected_type_module: tests.panda_pytest_assertions.assert_object._converters.conftest
         expected_type_name: Language
       : !WithType
         expectation: 1

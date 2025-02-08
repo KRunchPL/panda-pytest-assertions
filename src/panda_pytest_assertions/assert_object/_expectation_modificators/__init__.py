@@ -9,12 +9,12 @@ from .with_type import with_type, WithType
 
 __all__ = [
     'Is',
-    'is_type',
     'IsType',
     'MappingSubset',
     'ObjectAttributes',
     'Stringified',
     'Unordered',
     'WithType',
+    'is_type',
     'with_type',
 ]

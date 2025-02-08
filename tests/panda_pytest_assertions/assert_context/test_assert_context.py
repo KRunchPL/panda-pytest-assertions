@@ -146,9 +146,9 @@ def test(
             f'Block is expected to raise {expected_exception} not {type(exc)}'
         )
     else:
-        assert (
-            expected_exception is None
-        ), f'Block is expected to raise {type(expected_exception)} for args: {arguments}'
+        assert expected_exception is None, (
+            f'Block is expected to raise {type(expected_exception)} for args: {arguments}'
+        )
 
 
 def test_parameters_exclusiveness():
