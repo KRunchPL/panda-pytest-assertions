@@ -1,3 +1,4 @@
+import sys
 from contextlib import nullcontext
 from ipaddress import IPv4Address
 from typing import Any
@@ -66,6 +67,14 @@ class NotEqualsNone:  # noqa: PLW1641
         return value is not None
 
 
+if sys.version_info >= (3, 14):
+    IPV4_10_MUNCH: Munch[Any, Any] = Munch(_ip=10, version=4)
+    IPV4_11_MUNCH: Munch[Any, Any] = Munch(_ip=11, version=4)
+else:
+    IPV4_10_MUNCH: Munch[Any, Any] = Munch(_ip=10, _version=4)
+    IPV4_11_MUNCH: Munch[Any, Any] = Munch(_ip=11, _version=4)
+
+
 @pytest.mark.parametrize(
     ['expectation', 'object_', 'correct'],
     [
@@ -81,12 +90,12 @@ class NotEqualsNone:  # noqa: PLW1641
         (WithType('abc', 'NoneType', None), None, False),
         (WithType(EqualsNone(), 'NoneType', 'builtins'), None, True),
         (WithType(NotEqualsNone(), 'NoneType', 'builtins'), None, False),
-        (WithType(Munch(_ip=10, version=4), 'IPv4Address', 'ipaddress'), IPv4Address('0.0.0.10'), True),
-        (WithType(Munch(_ip=10, version=4), 'IPv4Address', None), IPv4Address('0.0.0.10'), True),
-        (WithType(Munch(_ip=10, version=4), 'IPv4Address', 'NOT ipaddress'), IPv4Address('0.0.0.10'), False),
-        (WithType(Munch(_ip=10, version=4), 'IPv6Address', 'ipaddress'), IPv4Address('0.0.0.10'), False),
-        (WithType(Munch(_ip=10, version=4), 'IPv6Address', None), IPv4Address('0.0.0.10'), False),
-        (WithType(Munch(_ip=11, version=4), 'IPv4Address', 'ipaddress'), IPv4Address('0.0.0.10'), False),
+        (WithType(IPV4_10_MUNCH, 'IPv4Address', 'ipaddress'), IPv4Address('0.0.0.10'), True),
+        (WithType(IPV4_10_MUNCH, 'IPv4Address', None), IPv4Address('0.0.0.10'), True),
+        (WithType(IPV4_10_MUNCH, 'IPv4Address', 'NOT ipaddress'), IPv4Address('0.0.0.10'), False),
+        (WithType(IPV4_10_MUNCH, 'IPv6Address', 'ipaddress'), IPv4Address('0.0.0.10'), False),
+        (WithType(IPV4_10_MUNCH, 'IPv6Address', None), IPv4Address('0.0.0.10'), False),
+        (WithType(IPV4_11_MUNCH, 'IPv4Address', 'ipaddress'), IPv4Address('0.0.0.10'), False),
     ],
 )
 def test_assert_object(expectation: Any, object_: Any, correct: bool):
