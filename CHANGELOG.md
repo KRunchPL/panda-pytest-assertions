@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* Using UV for package management inluding changing repo structure
+* Using UV for package management including changing repo structure
 * Update of development dependencies
 * Testing on Python 3.14
 
