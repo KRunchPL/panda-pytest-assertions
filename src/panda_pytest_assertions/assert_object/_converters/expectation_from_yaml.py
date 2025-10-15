@@ -61,7 +61,7 @@ def _(loader: ExpectationYamlLoader, node: yaml.Node) -> ObjectAttributes:
             problem='all keys in ObjectAttributes must be strings',
             problem_mark=node.start_mark,
         )
-    return ObjectAttributes(cast(dict[str, Any], node_data))
+    return ObjectAttributes(cast('dict[str, Any]', node_data))
 
 
 @ExpectationYamlLoader.add_construct('!Stringified')

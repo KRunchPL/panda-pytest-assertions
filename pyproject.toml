@@ -1,7 +1,7 @@
 [project]
 name = "panda-pytest-assertions"
 description = "Complex assertions that can be used when writing test with pytest"
-version = "0.2.2-dev"
+version = "0.3.0"
 authors = [
     { name = "Cyber Panda", email = "krunchfrompoland@gmail.com" },
 ]
@@ -25,15 +25,15 @@ packages = [
 
 [dependency-groups]
 dev = [
-    "darglint >=1.8.1,<2",
-    "flake8 >=7.1.1,<8",
-    "mypy >=1.15.0,<1.16.0",
-    "pytest-cov >=6.0.0,<7",
-    "pytest-mock >=3.14.0,<4",
-    "ruff >=0.9.5,<0.10.0",
-    "munch >=4.0.0,<5",
-    "munch-stubs >=0.1.2,<0.2",
-    "types-pyyaml >=6.0.12.20240917,<7",
+    "darglint",
+    "flake8",
+    "mypy",
+    "pytest-cov",
+    "pytest-mock",
+    "ruff",
+    "munch",
+    "munch-stubs",
+    "types-pyyaml",
 ]
 docs = [
     "mkdocs-material >=9.5.44,<10",

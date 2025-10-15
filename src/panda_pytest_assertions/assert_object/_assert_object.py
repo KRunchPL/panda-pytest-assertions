@@ -18,7 +18,7 @@ def assert_object(
         raise AssertionError(msg) from None
 
 
-class Expectation:
+class Expectation:  # noqa: PLW1641
     def __init__(
         self,
         expectation: Any,  # noqa: ANN401

@@ -50,6 +50,6 @@ class OrderedElementsAsserter(Asserter):
         for index, (element, asserter) in enumerate(zip(elements, self._elements_asserters, strict=True)):
             try:
                 asserter.assert_object(element)
-            except AssertionError as exc:
+            except AssertionError as exc:  # noqa: PERF203
                 msg = f'Element with index [{index}] has invalid value. {exc!s}'
                 raise AssertionError(msg) from None

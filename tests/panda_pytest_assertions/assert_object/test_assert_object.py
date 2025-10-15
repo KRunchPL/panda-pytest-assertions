@@ -70,7 +70,7 @@ def test_assert_object_assertion_error(
 ):
     asserter.assert_object.side_effect = AssertionError('Oh NO!')
 
-    with pytest.raises(AssertionError, match='Object assertion failed. Oh NO!'):
+    with pytest.raises(AssertionError, match=r'Object assertion failed. Oh NO!'):
         assert_object(expectation, object_, asserter_factory=asserter_factory)
 
 

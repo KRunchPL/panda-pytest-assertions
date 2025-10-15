@@ -56,12 +56,12 @@ def test_init():
     assert asserter.asserter_factory is AsserterFactory
 
 
-class EqualsNone:
+class EqualsNone:  # noqa: PLW1641
     def __eq__(self, value: object) -> bool:
         return value is None
 
 
-class NotEqualsNone:
+class NotEqualsNone:  # noqa: PLW1641
     def __eq__(self, value: object) -> bool:
         return value is not None
 
@@ -81,12 +81,12 @@ class NotEqualsNone:
         (WithType('abc', 'NoneType', None), None, False),
         (WithType(EqualsNone(), 'NoneType', 'builtins'), None, True),
         (WithType(NotEqualsNone(), 'NoneType', 'builtins'), None, False),
-        (WithType(Munch(_ip=10, _version=4), 'IPv4Address', 'ipaddress'), IPv4Address('0.0.0.10'), True),
-        (WithType(Munch(_ip=10, _version=4), 'IPv4Address', None), IPv4Address('0.0.0.10'), True),
-        (WithType(Munch(_ip=10, _version=4), 'IPv4Address', 'NOT ipaddress'), IPv4Address('0.0.0.10'), False),
-        (WithType(Munch(_ip=10, _version=4), 'IPv6Address', 'ipaddress'), IPv4Address('0.0.0.10'), False),
-        (WithType(Munch(_ip=10, _version=4), 'IPv6Address', None), IPv4Address('0.0.0.10'), False),
-        (WithType(Munch(_ip=11, _version=4), 'IPv4Address', 'ipaddress'), IPv4Address('0.0.0.10'), False),
+        (WithType(Munch(_ip=10, version=4), 'IPv4Address', 'ipaddress'), IPv4Address('0.0.0.10'), True),
+        (WithType(Munch(_ip=10, version=4), 'IPv4Address', None), IPv4Address('0.0.0.10'), True),
+        (WithType(Munch(_ip=10, version=4), 'IPv4Address', 'NOT ipaddress'), IPv4Address('0.0.0.10'), False),
+        (WithType(Munch(_ip=10, version=4), 'IPv6Address', 'ipaddress'), IPv4Address('0.0.0.10'), False),
+        (WithType(Munch(_ip=10, version=4), 'IPv6Address', None), IPv4Address('0.0.0.10'), False),
+        (WithType(Munch(_ip=11, version=4), 'IPv4Address', 'ipaddress'), IPv4Address('0.0.0.10'), False),
     ],
 )
 def test_assert_object(expectation: Any, object_: Any, correct: bool):

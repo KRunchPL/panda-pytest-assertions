@@ -40,12 +40,12 @@ def test_init():
     assert asserter.asserter_factory is AsserterFactory
 
 
-class EqualsNone:
+class EqualsNone:  # noqa: PLW1641
     def __eq__(self, value: object) -> bool:
         return value is None
 
 
-class NotEqualsNone:
+class NotEqualsNone:  # noqa: PLW1641
     def __eq__(self, value: object) -> bool:
         return value is not None
 
