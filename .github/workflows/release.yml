@@ -36,6 +36,7 @@ jobs:
 
   pypi-publish:
     name: Upload release to PyPI
+    needs: build
     strategy:
       fail-fast: false
       matrix:
