@@ -12,26 +12,28 @@
         <meta name="author" content="KRunchPL">
       
       
-        <link rel="canonical" href="https://krunchpl.github.io/panda-pytest-assertions/">
+        <link rel="canonical" href="https://krunchpl.github.io/panda-pytest-assertions/assert_object/30.using_yaml/">
       
       
+        <link rel="prev" href="../20.expectations/">
       
-        <link rel="next" href="assert_context/">
+      
+        <link rel="next" href="../40.asserters/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
     
     
       
-        <title>Panda Pytest Assertions</title>
+        <title>Using YAML - Panda Pytest Assertions</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -45,12 +47,12 @@
         
         
         
-        <link rel="stylesheet" href="assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <link rel="stylesheet" href="../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#using-yaml" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +98,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Panda Pytest Assertions" class="md-header__button md-logo" aria-label="Panda Pytest Assertions" data-md-component="logo">
+    <a href="../.." title="Panda Pytest Assertions" class="md-header__button md-logo" aria-label="Panda Pytest Assertions" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Using YAML
             
           </span>
         </div>
@@ -226,11 +228,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -251,7 +251,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="assert_context/" class="md-tabs__link">
+        <a href="../../assert_context/" class="md-tabs__link">
           
   
   
@@ -269,11 +269,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="assert_object/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -315,7 +317,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Panda Pytest Assertions" class="md-nav__button md-logo" aria-label="Panda Pytest Assertions" data-md-component="logo">
+    <a href="../.." title="Panda Pytest Assertions" class="md-nav__button md-logo" aria-label="Panda Pytest Assertions" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -342,32 +344,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Overview
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -378,44 +358,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#assert_context" class="md-nav__link">
-    <span class="md-ellipsis">
-      assert_context
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assert_object" class="md-nav__link">
-    <span class="md-ellipsis">
-      assert_object
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -448,7 +390,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="assert_context/" class="md-nav__link ">
+            <a href="../../assert_context/" class="md-nav__link ">
               
   
   
@@ -482,6 +424,8 @@
       
   
   
+    
+  
   
   
     
@@ -505,18 +449,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="assert_object/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -529,13 +476,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Assert object
@@ -551,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="assert_object/10.asserting/" class="md-nav__link">
+      <a href="../10.asserting/" class="md-nav__link">
         
   
   
@@ -574,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="assert_object/20.expectations/" class="md-nav__link">
+      <a href="../20.expectations/" class="md-nav__link">
         
   
   
@@ -594,10 +541,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="assert_object/30.using_yaml/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -608,6 +564,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -620,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="assert_object/40.asserters/" class="md-nav__link">
+      <a href="../40.asserters/" class="md-nav__link">
         
   
   
@@ -668,7 +625,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="assert_object/generating_expectation/" class="md-nav__link ">
+            <a href="../generating_expectation/" class="md-nav__link ">
               
   
   
@@ -703,7 +660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="assert_object/generating_expectation/10.definition/" class="md-nav__link">
+      <a href="../generating_expectation/10.definition/" class="md-nav__link">
         
   
   
@@ -726,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="assert_object/generating_expectation/20.generators/" class="md-nav__link">
+      <a href="../generating_expectation/20.generators/" class="md-nav__link">
         
   
   
@@ -777,32 +734,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#assert_context" class="md-nav__link">
-    <span class="md-ellipsis">
-      assert_context
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assert_object" class="md-nav__link">
-    <span class="md-ellipsis">
-      assert_object
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -820,24 +751,61 @@
   
 
 
-<h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h1>
-<p><strong>Panda Pytest Assertions</strong> is a library that provides a complex assertion mechanism for use when writing tests with pytest. The primary goal is to make test code more concise, readable, and maintainable.</p>
-<p>The library consists of two modules that can be used separately or together:</p>
-<ul>
-<li><code>assert_context</code> - used to assert that the block of code behaved as expected, raise or do not raise the exception and assert the value of a result;</li>
-<li><code>assert_object</code> - used to assert the content of the object, when simple <code>==</code> is not enough.</li>
-</ul>
-<h2 id="assert_context"><code>assert_context</code><a class="headerlink" href="#assert_context" title="Permanent link">#</a></h2>
-<p>This context manager asserts that a code block within a <code>with</code> block behaves according to expectations. It verifies whether an exception of a specific type was (or wasn't) raised within the block and whether the result of the block (settable by the user) matches the expected value. For example:</p>
-<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">exception</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="s1">&#39;something&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;something&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="k">raise</span> <span class="ne">ValueError</span>
+<h1 id="using-yaml">Using YAML<a class="headerlink" href="#using-yaml" title="Permanent link">#</a></h1>
+<p>For handling very complex objects, especially in the context of end-to-end (E2E) tests, it can be highly beneficial to store expectations in separate YAML files. This module provides helper methods to both dump expectations into a YAML string and load them from a YAML string.</p>
+<p>Any expectation supported by this module can be converted into YAML using the <code>expectation_to_yaml</code> function. Let's take a look at an example:</p>
+<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">expectation</span> <span class="o">=</span> <span class="n">ObjectAttributes</span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>        <span class="s1">&#39;created_at&#39;</span><span class="p">:</span> <span class="n">Stringified</span><span class="p">(</span><span class="s1">&#39;2020-06-08 12:30:00&#39;</span><span class="p">),</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>        <span class="s1">&#39;books&#39;</span><span class="p">:</span> <span class="n">Unordered</span><span class="p">(</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>            <span class="p">[</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>                <span class="n">ObjectAttributes</span><span class="p">(</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>                    <span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>                        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Otworzyć po mojej śmierci&#39;</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>                        <span class="s1">&#39;authors&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Abelard Giza&#39;</span><span class="p">],</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>                        <span class="s1">&#39;translations&#39;</span><span class="p">:</span> <span class="n">MappingSubset</span><span class="p">({}),</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>                    <span class="p">},</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>                <span class="p">),</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>                <span class="n">ObjectAttributes</span><span class="p">(</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>                    <span class="p">{</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>                        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Hobbit&#39;</span><span class="p">,</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>                        <span class="s1">&#39;authors&#39;</span><span class="p">:</span> <span class="n">Stringified</span><span class="p">(</span><span class="s2">&quot;[&#39;J. R. R. Tolkien&#39;]&quot;</span><span class="p">),</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>                        <span class="s1">&#39;language&#39;</span><span class="p">:</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>                    <span class="p">},</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>                <span class="p">),</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>            <span class="p">],</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="p">),</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="p">},</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="p">)</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="n">yaml_string</span> <span class="o">=</span> <span class="n">expectation_to_yaml</span><span class="p">(</span><span class="n">expectation</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="assert_object"><code>assert_object</code><a class="headerlink" href="#assert_object" title="Permanent link">#</a></h2>
-<p>This function is used to assert the content of a Python object (and possibly nested objects) against provided expectations. It goes beyond simple equality checks using <code>==</code>. For instance:</p>
-<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<p>The resulting <code>yaml_string</code> will have the following content:</p>
+<div class="language-yaml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">YAML</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
@@ -848,81 +816,23 @@
 <span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-1-10">10</a></span>
 <span class="normal"><a href="#__codelineno-1-11">11</a></span>
-<span class="normal"><a href="#__codelineno-1-12">12</a></span>
-<span class="normal"><a href="#__codelineno-1-13">13</a></span>
-<span class="normal"><a href="#__codelineno-1-14">14</a></span>
-<span class="normal"><a href="#__codelineno-1-15">15</a></span>
-<span class="normal"><a href="#__codelineno-1-16">16</a></span>
-<span class="normal"><a href="#__codelineno-1-17">17</a></span>
-<span class="normal"><a href="#__codelineno-1-18">18</a></span>
-<span class="normal"><a href="#__codelineno-1-19">19</a></span>
-<span class="normal"><a href="#__codelineno-1-20">20</a></span>
-<span class="normal"><a href="#__codelineno-1-21">21</a></span>
-<span class="normal"><a href="#__codelineno-1-22">22</a></span>
-<span class="normal"><a href="#__codelineno-1-23">23</a></span>
-<span class="normal"><a href="#__codelineno-1-24">24</a></span>
-<span class="normal"><a href="#__codelineno-1-25">25</a></span>
-<span class="normal"><a href="#__codelineno-1-26">26</a></span>
-<span class="normal"><a href="#__codelineno-1-27">27</a></span>
-<span class="normal"><a href="#__codelineno-1-28">28</a></span>
-<span class="normal"><a href="#__codelineno-1-29">29</a></span>
-<span class="normal"><a href="#__codelineno-1-30">30</a></span>
-<span class="normal"><a href="#__codelineno-1-31">31</a></span>
-<span class="normal"><a href="#__codelineno-1-32">32</a></span>
-<span class="normal"><a href="#__codelineno-1-33">33</a></span>
-<span class="normal"><a href="#__codelineno-1-34">34</a></span>
-<span class="normal"><a href="#__codelineno-1-35">35</a></span>
-<span class="normal"><a href="#__codelineno-1-36">36</a></span>
-<span class="normal"><a href="#__codelineno-1-37">37</a></span>
-<span class="normal"><a href="#__codelineno-1-38">38</a></span>
-<span class="normal"><a href="#__codelineno-1-39">39</a></span>
-<span class="normal"><a href="#__codelineno-1-40">40</a></span>
-<span class="normal"><a href="#__codelineno-1-41">41</a></span>
-<span class="normal"><a href="#__codelineno-1-42">42</a></span>
-<span class="normal"><a href="#__codelineno-1-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">asserted_object</span><span class="p">:</span> <span class="n">Munch</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">Munch</span><span class="p">(</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a>    <span class="n">list_author</span><span class="o">=</span><span class="s1">&#39;Jan Kowalski&#39;</span><span class="p">,</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>    <span class="n">created_at</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    <span class="n">books</span><span class="o">=</span><span class="p">[</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>        <span class="n">Munch</span><span class="p">(</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Hobbit&#39;</span><span class="p">,</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>            <span class="n">authors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;J. R. R. Tolkien&#39;</span><span class="p">],</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a>            <span class="n">language</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">,</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a>            <span class="n">translations</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;pl&#39;</span><span class="p">:</span> <span class="mi">1963</span><span class="p">,</span> <span class="s1">&#39;it&#39;</span><span class="p">:</span> <span class="mi">1973</span><span class="p">},</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a>        <span class="p">),</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a>        <span class="n">Munch</span><span class="p">(</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a>            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Otworzyć po mojej śmierci&#39;</span><span class="p">,</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a>            <span class="n">authors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Abelard Giza&#39;</span><span class="p">],</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a>            <span class="n">language</span><span class="o">=</span><span class="s1">&#39;pl&#39;</span><span class="p">,</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a>            <span class="n">translations</span><span class="o">=</span><span class="p">{},</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a>        <span class="p">),</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a>    <span class="p">],</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="p">)</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="n">expectation</span> <span class="o">=</span> <span class="n">ObjectAttributes</span><span class="p">(</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a>    <span class="p">{</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a>        <span class="s1">&#39;created_at&#39;</span><span class="p">:</span> <span class="n">Stringified</span><span class="p">(</span><span class="s1">&#39;2020-06-08 12:30:00&#39;</span><span class="p">),</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a>        <span class="s1">&#39;books&#39;</span><span class="p">:</span> <span class="n">Unordered</span><span class="p">(</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a>            <span class="p">[</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a>                <span class="n">ObjectAttributes</span><span class="p">(</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a>                    <span class="p">{</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a>                        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Otworzyć po mojej śmierci&#39;</span><span class="p">,</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a>                        <span class="s1">&#39;authors&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Abelard Giza&#39;</span><span class="p">],</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28"></a>                        <span class="s1">&#39;translations&#39;</span><span class="p">:</span> <span class="n">MappingSubset</span><span class="p">({}),</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29"></a>                    <span class="p">},</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a>                <span class="p">),</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31"></a>                <span class="n">ObjectAttributes</span><span class="p">(</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32"></a>                    <span class="p">{</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33"></a>                        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Hobbit&#39;</span><span class="p">,</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34"></a>                        <span class="s1">&#39;authors&#39;</span><span class="p">:</span> <span class="n">Stringified</span><span class="p">(</span><span class="s2">&quot;[&#39;J. R. R. Tolkien&#39;]&quot;</span><span class="p">),</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35"></a>                        <span class="s1">&#39;language&#39;</span><span class="p">:</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36"></a>                    <span class="p">},</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37"></a>                <span class="p">),</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38"></a>            <span class="p">],</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39"></a>        <span class="p">),</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40"></a>    <span class="p">},</span>
-<a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="p">)</span>
-<a id="__codelineno-1-42" name="__codelineno-1-42"></a>
-<a id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="n">assert_object</span><span class="p">(</span><span class="n">expectation</span><span class="p">,</span> <span class="n">asserted_object</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">!ObjectAttributes</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nt">books</span><span class="p">:</span><span class="w"> </span><span class="kt">!Unordered</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!ObjectAttributes</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">  </span><span class="nt">authors</span><span class="p">:</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Abelard Giza</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Otworzy</span><span class="se">\u0107</span><span class="nv"> </span><span class="s">po</span><span class="nv"> </span><span class="s">mojej</span><span class="nv"> </span><span class="se">\u015B</span><span class="s">mierci&quot;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">  </span><span class="nt">translations</span><span class="p">:</span><span class="w"> </span><span class="kt">!MappingSubset</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!ObjectAttributes</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">  </span><span class="nt">authors</span><span class="p">:</span><span class="w"> </span><span class="kt">!Stringified</span><span class="w"> </span><span class="s">&#39;[</span><span class="se">&#39;&#39;</span><span class="s">J.</span><span class="nv"> </span><span class="s">R.</span><span class="nv"> </span><span class="s">R.</span><span class="nv"> </span><span class="s">Tolkien</span><span class="se">&#39;&#39;</span><span class="s">]&#39;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Hobbit</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="nt">created_at</span><span class="p">:</span><span class="w"> </span><span class="kt">!Stringified</span><span class="w"> </span><span class="s">&#39;2020-06-08</span><span class="nv"> </span><span class="s">12:30:00&#39;</span>
 </code></pre></div></td></tr></table></div>
+<p>You can also load a YAML string back into expectation objects using the <code>expectation_from_yaml</code> function:</p>
+<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">expectation</span> <span class="o">=</span> <span class="n">expectation_from_yaml</span><span class="p">(</span><span class="n">yaml_string</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Keep in mind that the loaded expectation may not be exactly identical to the original one before dumping, but it will be functionally equivalent.</p>
 
 
 
@@ -957,15 +867,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="../20.expectations/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Expectations">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Expectations
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="assert_context/" class="md-footer__link md-footer__link--next" aria-label="Next: assert_context">
+          <a href="../40.asserters/" class="md-footer__link md-footer__link--next" aria-label="Next: Asserters">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                assert_context
+                Asserters
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1005,10 +931,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.indexes", "toc.follow", "navigation.top", "search.suggest", "search.share", "navigation.footer"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.indexes", "toc.follow", "navigation.top", "search.suggest", "search.share", "navigation.footer"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>
