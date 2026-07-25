@@ -10,6 +10,9 @@ from .generator import Generator
 class UnionGenerator(Generator):
     """
     Generates expectation using the first definition that matches the value.
+
+    :param generator_factory: factory for object generators
+    :param definition: Union expectation definition
     """
 
     @classmethod

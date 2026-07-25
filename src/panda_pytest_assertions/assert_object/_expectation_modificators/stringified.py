@@ -1,6 +1,8 @@
 class Stringified:
     """
     Wrapper for the expectation that describes stringified object.
+
+    :param stringified_value: stringified value expectation
     """
 
     def __init__(self, stringified_value: str, /) -> None:

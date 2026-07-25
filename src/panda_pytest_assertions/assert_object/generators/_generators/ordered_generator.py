@@ -10,6 +10,9 @@ from .generator import Generator
 class OrderedGenerator(Generator):
     """
     Generates ordered collection expectation.
+
+    :param generator_factory: factory for object generators
+    :param definition: Ordered expectation definition
     """
 
     @classmethod

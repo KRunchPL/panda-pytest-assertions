@@ -9,6 +9,9 @@ from .generator import Generator
 class StringifiedGenerator(Generator):
     """
     Generates Stringified expectation from the object.
+
+    :param generator_factory: factory for object generators
+    :param definition: Stringified expectation definition
     """
 
     @classmethod

@@ -9,6 +9,9 @@ class EqualityAsserter(Asserter):
 
     It is a default, fallback asserter that matches ANY object, so it is critical that it is
     the last one checked.
+
+    :param asserter_factory: factory for asserters
+    :param expectation: expectation to be used
     """
 
     @classmethod

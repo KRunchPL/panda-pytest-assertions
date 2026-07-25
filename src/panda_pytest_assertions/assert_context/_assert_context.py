@@ -8,7 +8,7 @@ import pytest
 class _Unset:
     __instance: '_Unset | None' = None
 
-    def __new__(cls) -> '_Unset':
+    def __new__(cls) -> '_Unset':  # noqa: PYI034
         if cls.__instance is None:
             cls.__instance = object.__new__(cls)
         return cls.__instance
@@ -43,7 +43,7 @@ class ExceptionMatch(NamedTuple):
 @contextmanager
 def assert_context(  # noqa: D418
     *,
-    exception: type[BaseException] | ExceptionMatch | None | _Unset = ...,
+    exception: type[BaseException] | ExceptionMatch | _Unset | None = ...,
     result: Any | _Unset = ...,  # noqa: ANN401
 ) -> Generator[AssertContext, None, None]:
     """
@@ -99,7 +99,7 @@ def assert_context(  # noqa: D418
 @contextmanager
 def assert_context(
     *,
-    exception: type[BaseException] | ExceptionMatch | None | _Unset = _UNSET,
+    exception: type[BaseException] | ExceptionMatch | _Unset | None = _UNSET,
     result: Any | _Unset = _UNSET,
     behaviour: type[BaseException] | ExceptionMatch | Any | _Unset = _UNSET,
 ) -> Generator[AssertContext, None, None]:

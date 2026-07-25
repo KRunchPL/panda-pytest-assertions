@@ -7,6 +7,9 @@ from panda_pytest_assertions.assert_object._protocols import AsserterFactoryProt
 class Asserter(abc.ABC):
     """
     Asserter checking that the given expectation is fulfilled by the object.
+
+    :param asserter_factory: factory for asserters
+    :param expectation: expectation to be used
     """
 
     @classmethod
@@ -16,6 +19,7 @@ class Asserter(abc.ABC):
         Decide whether provided expectation can be handled by this asserter.
 
         :param expectation: expectation to be tested
+        :return: whether provided expectation can be handled by this asserter
         """
 
     def __init__(

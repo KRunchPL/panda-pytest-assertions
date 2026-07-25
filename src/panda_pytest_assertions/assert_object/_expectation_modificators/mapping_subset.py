@@ -5,6 +5,8 @@ from typing import Any
 class MappingSubset:
     """
     Wrapper for the expectation that describes a subset of a mapping object.
+
+    :param items_expectations: mapping of items expectations
     """
 
     def __init__(self, items_expectations: Mapping[Any, Any], /) -> None:

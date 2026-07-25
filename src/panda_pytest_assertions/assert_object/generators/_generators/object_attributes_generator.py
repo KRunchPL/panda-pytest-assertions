@@ -10,6 +10,9 @@ from .generator import Generator
 class ObjectAttributesGenerator(Generator):
     """
     Generates ObjectAttributes expectation.
+
+    :param generator_factory: factory for object generators
+    :param definition: ObjectAttributes expectation definition
     """
 
     @classmethod

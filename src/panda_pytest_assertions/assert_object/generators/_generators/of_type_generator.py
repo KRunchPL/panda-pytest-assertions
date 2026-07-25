@@ -11,6 +11,9 @@ from .generator import Generator
 class OfTypeGenerator(Generator):
     """
     Generates custom expectation, but only if the object is of a correct type.
+
+    :param generator_factory: factory for object generators
+    :param definition: OfType expectation definition
     """
 
     @classmethod

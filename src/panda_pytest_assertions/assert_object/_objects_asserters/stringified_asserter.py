@@ -9,6 +9,9 @@ from .asserter import Asserter
 class StringifiedAsserter(Asserter):
     """
     Assert that the stringified object is a given value.
+
+    :param asserter_factory: factory for asserters
+    :param expectation: expectation to be used
     """
 
     @classmethod

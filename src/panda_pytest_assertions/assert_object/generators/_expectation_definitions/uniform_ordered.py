@@ -5,6 +5,9 @@ from typing import Any
 class UniformOrderedDef:
     """
     Defines expectation for ordered collection using the same definition for each element.
+
+    :param elements_definition: definition for elements
+    :param expectation_type: type of expectation to be generated
     """
 
     def __init__(

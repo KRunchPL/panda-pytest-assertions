@@ -11,6 +11,9 @@ from .generator import Generator
 class UniformMappingGenerator(Generator):
     """
     Generates mapping expectation using the same definition for each value.
+
+    :param generator_factory: factory for object generators
+    :param definition: UniformMapping expectation definition
     """
 
     @classmethod

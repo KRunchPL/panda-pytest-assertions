@@ -11,6 +11,9 @@ from .generator import Generator
 class UnorderedGenerator(Generator):
     """
     Generates unordered collection expectation.
+
+    :param generator_factory: factory for object generators
+    :param definition: Unordered expectation definition
     """
 
     @classmethod

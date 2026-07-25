@@ -12,6 +12,9 @@ class MappingAsserter(Asserter):
 
     Expectation is a mapping between object keys and coresponding expectation. The object must
     contain the exact same keys as the expectation, no more, no less.
+
+    :param asserter_factory: factory for asserters
+    :param expectation: expectation to be used
     """
 
     @classmethod

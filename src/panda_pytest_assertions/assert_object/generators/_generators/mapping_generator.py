@@ -11,6 +11,9 @@ from .generator import Generator
 class MappingGenerator(Generator):
     """
     Generates Mapping expectation.
+
+    :param generator_factory: factory for object generators
+    :param definition: Mapping expectation definition
     """
 
     @classmethod

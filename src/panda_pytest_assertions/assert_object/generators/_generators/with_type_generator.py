@@ -9,6 +9,9 @@ from .generator import Generator
 class WithTypeGenerator(Generator):
     """
     Generates WithType expectation.
+
+    :param generator_factory: factory for object generators
+    :param definition: WithType expectation definition
     """
 
     @classmethod

@@ -10,6 +10,9 @@ from .generator import Generator
 class EqualityKeyMappingGenerator(Generator):
     """
     Generates Mapping expectation using keys' values as keys' expectations.
+
+    :param generator_factory: factory for object generators
+    :param definition: EqualityKeyMapping expectation definition
     """
 
     @classmethod

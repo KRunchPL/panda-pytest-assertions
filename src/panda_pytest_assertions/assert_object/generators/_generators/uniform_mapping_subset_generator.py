@@ -11,6 +11,9 @@ from .generator import Generator
 class UniformMappingSubsetGenerator(Generator):
     """
     Generates MappingSubset expectation using the same definition for each value.
+
+    :param generator_factory: factory for object generators
+    :param definition: UniformMappingSubset expectation definition
     """
 
     @classmethod

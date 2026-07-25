@@ -7,6 +7,9 @@ from panda_pytest_assertions.assert_object._protocols import GeneratorFactoryPro
 class Generator(abc.ABC):
     """
     Generates expectation for given object according to a provided definition.
+
+    :param generator_factory: factory for object generators
+    :param definition: expectation definition
     """
 
     @classmethod
@@ -16,6 +19,7 @@ class Generator(abc.ABC):
         Decide whether provided definition can be handled by this generator.
 
         :param definition: definition to be tested
+        :return: whether provided definition can be handled by this generator
         """
 
     def __init__(
@@ -32,4 +36,5 @@ class Generator(abc.ABC):
         Generate expectation from given object.
 
         :param object_: an object to generate expectation from
+        :return: generated expectation
         """

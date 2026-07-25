@@ -6,6 +6,8 @@ class UnionDef:
     Definition that accepts multiple definitions in case a place in object can have multiple types of values.
 
     The first definition that matches a value during expectation generation will be used.
+
+    :param definitions: allowed union definitions
     """
 
     def __init__(self, *definitions: Any) -> None:  # noqa: ANN401

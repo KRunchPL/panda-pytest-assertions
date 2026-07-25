@@ -4,6 +4,9 @@ from typing import Any, Protocol
 class AsserterProtocol(Protocol):
     """
     Asserter checking that the given expectation is fulfilled by the object.
+
+    :param asserter_factory: factory for asserters
+    :param expectation: expectation to be used
     """
 
     expectation: Any
@@ -21,6 +24,7 @@ class AsserterProtocol(Protocol):
         Decide whether provided expectation can be handled by this asserter.
 
         :param expectation: expectation to be tested
+        :return: whether provided expectation can be handled by this asserter
         """
 
     def assert_object(self, object_: Any) -> None:  # noqa: ANN401
@@ -44,12 +48,16 @@ class AsserterFactoryProtocol(Protocol):
         The function goes through all registered asserter types and creates the first one that matches.
 
         :param expectation: expectation to create asserter for
+        :return: created asserter object
         """
 
 
 class GeneratorProtocol(Protocol):
     """
     Generates expectation from given object according to a definition.
+
+    :param generator_factory: factory for object generators
+    :param definition: expectation definition
     """
 
     definition: Any
@@ -67,6 +75,7 @@ class GeneratorProtocol(Protocol):
         Decide whether provided definition can be handled by this generator.
 
         :param definition: definition to be tested
+        :return: whether provided definition can be handled by this generator
         """
 
     def generate_expectation(self, object_: Any) -> Any:  # noqa: ANN401
@@ -74,6 +83,7 @@ class GeneratorProtocol(Protocol):
         Generate expectation from given object.
 
         :param object_: an object to generate expectation from
+        :return: generated expectation
         """
 
 
@@ -90,4 +100,5 @@ class GeneratorFactoryProtocol(Protocol):
         The method goes through all registered generator types and uses the first one that matches.
 
         :param definition: expectation definition
+        :return: created expectation generator
         """

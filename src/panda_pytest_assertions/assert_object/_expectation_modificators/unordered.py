@@ -5,6 +5,8 @@ from typing import Any
 class Unordered:
     """
     Wrapper for the expectation that describes unordered list.
+
+    :param elements_expectations: list of elements expectations
     """
 
     def __init__(self, elements_expectations: list[Any], /) -> None:

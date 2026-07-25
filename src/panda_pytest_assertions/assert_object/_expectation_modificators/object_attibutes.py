@@ -5,6 +5,8 @@ from typing import Any
 class ObjectAttributes:
     """
     Wrapper for the expectation that describes a object attributes.
+
+    :param attributes_expectations: mapping of attributes expectations
     """
 
     def __init__(self, attributes_expectations: Mapping[str, Any], /) -> None:

@@ -4,6 +4,9 @@ from typing import Any, overload
 class IsType:
     """
     Wrapper for the expectation that checks object's type.
+
+    :param expected_type_name: expected name of the object type
+    :param expected_type_module: expected module of the object type
     """
 
     def __init__(
@@ -34,6 +37,7 @@ def is_type(value_type: type[Any], /) -> IsType:  # noqa: D418
     Expected type name and type module will be extracted from the provided type.
 
     :param value_type: type to extract expected type name and module from
+    :return: created expectation
     """
 
 
@@ -51,6 +55,7 @@ def is_type(  # noqa: D418
 
     :param value_type_name: name of the expected type
     :param value_type_module: module of the expected type
+    :return: created expectation
     """
 
 

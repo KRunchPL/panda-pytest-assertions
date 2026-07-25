@@ -76,16 +76,20 @@ from panda_pytest_assertions.assert_object import (
             [1, 2],
             [1],
             (
-                'Object assertion failed. Length of an object (2) does not equal to the number of '
-                'expectations (1).',
+                (
+                    'Object assertion failed. Length of an object (2) does not equal to the number of '
+                    'expectations (1).'
+                ),
             ),
         ),
         (
             [1],
             [1, 3],
             (
-                'Object assertion failed. Length of an object (1) does not equal to the number of '
-                'expectations (2).',
+                (
+                    'Object assertion failed. Length of an object (1) does not equal to the number of '
+                    'expectations (2).'
+                ),
             ),
         ),
         (123, [1, 3], "Object assertion failed. Object must be iterable. Got: <class 'int'>."),

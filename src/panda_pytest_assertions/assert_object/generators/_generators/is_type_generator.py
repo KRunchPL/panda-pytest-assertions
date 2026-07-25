@@ -9,6 +9,9 @@ from .generator import Generator
 class IsTypeGenerator(Generator):
     """
     Generates IsType expectation.
+
+    :param generator_factory: factory for object generators
+    :param definition: IsType expectation definition
     """
 
     @classmethod

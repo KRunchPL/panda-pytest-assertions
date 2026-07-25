@@ -11,6 +11,9 @@ class ObjectAttributesAsserter(Asserter):
     Assert the values of object's attributes fulfill expectation defined in the dictionary.
 
     Expectation dictionary is a mapping between attribute name and its expectation.
+
+    :param asserter_factory: factory for asserters
+    :param expectation: expectation to be used
     """
 
     @classmethod

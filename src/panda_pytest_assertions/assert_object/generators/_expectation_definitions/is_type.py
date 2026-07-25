@@ -1,6 +1,8 @@
 class IsTypeDef:
     """
     Defines expectation validating object type.
+
+    :param include_module: indicator whether module shall be included in IsType expectation
     """
 
     def __init__(self, /, *, include_module: bool = True) -> None:

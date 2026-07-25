@@ -5,6 +5,10 @@ from typing import Any, overload
 class WithType:
     """
     Wrapper for the expectation that additionally checks object's type.
+
+    :param expectation: object expectation
+    :param expected_type_name: expected name of the object type
+    :param expected_type_module: expected module of the object type
     """
 
     def __init__(
@@ -43,6 +47,8 @@ def with_type() -> _WithTypeCreator:  # noqa: D418
     Returned function accepts any kind of value and will create proper expectation.
 
     Expected type name and type module will be extracted from the object passed to the returned function.
+
+    :return: function that will take create proper type-aware expectation
     """
 
 
@@ -56,6 +62,7 @@ def with_type(value_type: type[Any], /) -> _WithTypeCreator:  # noqa: D418
     Expected type name and type module will be extracted from the provided type type.
 
     :param value_type: type to extract expected type name and module from
+    :return: function that will take create proper type-aware expectation
     """
 
 
@@ -75,6 +82,7 @@ def with_type(  # noqa: D418
 
     :param value_type_name: name of the expected type
     :param value_type_module: module of the expected type
+    :return: function that will take create proper type-aware expectation
     """
 
 

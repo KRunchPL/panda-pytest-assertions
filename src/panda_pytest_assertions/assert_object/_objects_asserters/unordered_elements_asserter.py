@@ -16,6 +16,9 @@ class UnorderedElementsAsserter(Asserter):
 
     The algorithm iterates over expectatations and if any of the element matches an expectation,
     both expectation and element are not considered anymore.
+
+    :param asserter_factory: factory for asserters
+    :param expectation: expectation to be used
     """
 
     @classmethod

@@ -9,6 +9,9 @@ from .asserter import Asserter
 class IsTypeAsserter(Asserter):
     """
     Assert that the object is of a proper type.
+
+    :param asserter_factory: factory for asserters
+    :param expectation: expectation to be used
     """
 
     @classmethod

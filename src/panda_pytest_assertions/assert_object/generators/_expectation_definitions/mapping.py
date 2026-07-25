@@ -5,6 +5,9 @@ from typing import Any
 class MappingDef:
     """
     Defines mapping expectation where all keys share common definition and each have definition for its value.
+
+    :param keys_definition: definition for mapping keys
+    :param items_definitions: mapping of items definitions
     """
 
     def __init__(self, keys_definition: Any, items_definitions: Mapping[str, Any], /) -> None:  # noqa: ANN401

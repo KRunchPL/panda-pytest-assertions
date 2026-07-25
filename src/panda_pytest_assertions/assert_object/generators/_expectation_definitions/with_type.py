@@ -5,6 +5,9 @@ from typing import Any
 class WithTypeDef:
     """
     Defines expectation validating object type.
+
+    :param object_definition: definition for object itself
+    :param include_module: indicator whether module shall be included in WithType expectation
     """
 
     def __init__(self, object_definition: Any, /, *, include_module: bool = True) -> None:  # noqa: ANN401

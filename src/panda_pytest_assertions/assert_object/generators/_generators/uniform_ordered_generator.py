@@ -11,6 +11,9 @@ from .generator import Generator
 class UniformOrderedGenerator(Generator):
     """
     Generates ordered collection expectation using the same definition for each element.
+
+    :param generator_factory: factory for object generators
+    :param definition: UniformOrdered expectation definition
     """
 
     @classmethod

@@ -9,6 +9,9 @@ from .asserter import Asserter
 class IdentityAsserter(Asserter):
     """
     Assert that the object is identical to the expectation's value.
+
+    :param asserter_factory: factory for asserters
+    :param expectation: expectation to be used
     """
 
     @classmethod

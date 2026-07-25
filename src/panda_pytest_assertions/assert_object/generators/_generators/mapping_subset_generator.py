@@ -11,6 +11,9 @@ from .generator import Generator
 class MappingSubsetGenerator(Generator):
     """
     Generates MappingSubset expectation.
+
+    :param generator_factory: factory for object generators
+    :param definition: MappingSubset expectation definition
     """
 
     @classmethod

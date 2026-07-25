@@ -13,6 +13,9 @@ class MappingSubsetAsserter(Asserter):
 
     Expectation is a mapping between object keys and coresponding expectation. The object
     must contain all the keys defined in expectation, but may also contain more.
+
+    :param asserter_factory: factory for asserters
+    :param expectation: expectation to be used
     """
 
     @classmethod

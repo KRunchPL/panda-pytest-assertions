@@ -7,6 +7,9 @@ from .generator import Generator
 class EqualityGenerator(Generator):
     """
     Generated expectation is just the specific object.
+
+    :param generator_factory: factory for object generators
+    :param definition: Equality expectation definition
     """
 
     @classmethod

@@ -4,6 +4,8 @@ from typing import Any
 class Is:
     """
     Wrapper for the expectation that describes object identity (compared with `is` operator).
+
+    :param value: expected object
     """
 
     def __init__(self, value: Any, /) -> None:  # noqa: ANN401

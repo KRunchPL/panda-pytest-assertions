@@ -11,6 +11,9 @@ class OrderedElementsAsserter(Asserter):
     Assert that elements of a flat collection are fulfill by provided expectations.
 
     The order of expectations must match the order fo elements.
+
+    :param asserter_factory: factory for asserters
+    :param expectation: expectation to be used
     """
 
     @classmethod
