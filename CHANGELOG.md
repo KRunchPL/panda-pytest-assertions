@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2026-10-10
+
+### Added
+
+* Testing on Python 3.15
+
+### Removed
+
+* Support for Python 3.10
+
 ## [0.3.1] - 2026-07-25
 
 No user-facing changes, just internal maintenance.

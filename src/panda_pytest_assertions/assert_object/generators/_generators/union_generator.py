@@ -48,7 +48,7 @@ class UnionGenerator(Generator):
         for generator in self.generators:
             try:
                 return generator.generate_expectation(object_)
-            except ObjectNotMatchingDefinitionError as exc:  # noqa: PERF203
+            except ObjectNotMatchingDefinitionError as exc:
                 exceptions.append(exc)
         msg = f'Object "{object_}" did not match any of the expectation definition. Errors: {exceptions!r}'
         raise ObjectNotMatchingDefinitionError(msg)
