@@ -1010,7 +1010,7 @@
 <p>The following code snippet demonstrates how to use <code>assert_context</code>. It asserts that the result of <code>fun()</code> will be <code>'something'</code> and that <code>bar()</code> will raise a <code>ValueError</code>.</p>
 <div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">exception</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="s1">&#39;something&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">exception</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="s1">'something'</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">fun</span><span class="p">())</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">bar</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -1066,8 +1066,8 @@
 <span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">()</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2"></a>    <span class="o">...</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="s1">&#39;something&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;something&#39;</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="s1">'something'</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'something'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Code raising an <code>AssertionError</code>:</p>
 <div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
@@ -1078,12 +1078,12 @@
 <span class="normal"><a href="#__codelineno-5-6">6</a></span>
 <span class="normal"><a href="#__codelineno-5-7">7</a></span>
 <span class="normal"><a href="#__codelineno-5-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">()</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;else&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'else'</span><span class="p">)</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="s1">&#39;something&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;else&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="s1">'something'</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'else'</span><span class="p">)</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="s1">&#39;something&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="s1">'something'</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="o">...</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="combining-exception-and-result-parameters">Combining <code>exception</code> and <code>result</code> Parameters<a class="headerlink" href="#combining-exception-and-result-parameters" title="Permanent link">#</a></h3>
@@ -1092,8 +1092,8 @@
 <p>Code not raising any exceptions:</p>
 <div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">exception</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="s1">&#39;something&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;something&#39;</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">exception</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="s1">'something'</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'something'</span><span class="p">)</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3"></a>    <span class="k">raise</span> <span class="ne">ValueError</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="behaviour-parameter"><code>behaviour</code> Parameter<a class="headerlink" href="#behaviour-parameter" title="Permanent link">#</a></h3>
@@ -1110,8 +1110,8 @@
 <span class="normal"><a href="#__codelineno-7-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">behaviour</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2"></a>    <span class="k">raise</span> <span class="ne">ValueError</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3"></a>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="s1">&#39;something&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;something&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="s1">'something'</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'something'</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Code raising exceptions:</p>
 <div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
@@ -1119,9 +1119,9 @@
 <span class="normal"><a href="#__codelineno-8-3">3</a></span>
 <span class="normal"><a href="#__codelineno-8-4">4</a></span>
 <span class="normal"><a href="#__codelineno-8-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">behaviour</span><span class="o">=</span><span class="ne">ValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;else&#39;</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>    <span class="n">context</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'else'</span><span class="p">)</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="s1">&#39;something&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="k">with</span> <span class="n">assert_context</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="s1">'something'</span><span class="p">)</span> <span class="k">as</span> <span class="n">context</span><span class="p">:</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5"></a>    <span class="k">raise</span> <span class="ne">ValueError</span>
 </code></pre></div></td></tr></table></div>
 
