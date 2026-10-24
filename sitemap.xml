@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://krunchpl.github.io/panda-pytest-assertions/</loc>
-         <lastmod>2026-10-11</lastmod>
+         <lastmod>2026-10-24</lastmod>
     </url>
     <url>
          <loc>https://krunchpl.github.io/panda-pytest-assertions/assert_context/</loc>
-         <lastmod>2026-10-11</lastmod>
+         <lastmod>2026-10-24</lastmod>
     </url>
     <url>
          <loc>https://krunchpl.github.io/panda-pytest-assertions/assert_object/</loc>
-         <lastmod>2026-10-11</lastmod>
+         <lastmod>2026-10-24</lastmod>
     </url>
     <url>
          <loc>https://krunchpl.github.io/panda-pytest-assertions/assert_object/10.asserting/</loc>
-         <lastmod>2026-10-11</lastmod>
+         <lastmod>2026-10-24</lastmod>
     </url>
     <url>
          <loc>https://krunchpl.github.io/panda-pytest-assertions/assert_object/20.expectations/</loc>
-         <lastmod>2026-10-11</lastmod>
+         <lastmod>2026-10-24</lastmod>
     </url>
     <url>
          <loc>https://krunchpl.github.io/panda-pytest-assertions/assert_object/30.using_yaml/</loc>
-         <lastmod>2026-10-11</lastmod>
+         <lastmod>2026-10-24</lastmod>
     </url>
     <url>
          <loc>https://krunchpl.github.io/panda-pytest-assertions/assert_object/40.asserters/</loc>
-         <lastmod>2026-10-11</lastmod>
+         <lastmod>2026-10-24</lastmod>
     </url>
     <url>
          <loc>https://krunchpl.github.io/panda-pytest-assertions/assert_object/generating_expectation/</loc>
-         <lastmod>2026-10-11</lastmod>
+         <lastmod>2026-10-24</lastmod>
     </url>
     <url>
          <loc>https://krunchpl.github.io/panda-pytest-assertions/assert_object/generating_expectation/10.definition/</loc>
-         <lastmod>2026-10-11</lastmod>
+         <lastmod>2026-10-24</lastmod>
     </url>
     <url>
          <loc>https://krunchpl.github.io/panda-pytest-assertions/assert_object/generating_expectation/20.generators/</loc>
-         <lastmod>2026-10-11</lastmod>
+         <lastmod>2026-10-24</lastmod>
     </url>
 </urlset>
